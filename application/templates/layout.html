@@ -1,0 +1,18 @@
+<html>
+    <head>
+      <title>Drona</title>
+    </head>
+    <body>
+      <div class="container">
+        <div>Drona: <a href="{{ url_for('index') }}">Home</a></div>
+        {% if session.username %}
+          <div style="text-align: right;"><a href="/logout">Logout</a></div>
+        {% elif not session.username %}
+          <div style="text-align: right;"><a href="/login">Login</a></div>
+          <div style="text-align: right;"><a href="/register">Register</a></div>
+        {% endif %}
+      </div>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>

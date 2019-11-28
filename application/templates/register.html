@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h2>Register</h2>
+    <form action="{{ url_for('register') }}" method="post">
+        <dl>
+            <dt>Username:</dt>
+            <dd><input type="text" name="username"></dd>
+            <dt>Password:</dt>
+            <dd><input type="password" name="password"></dd>
+        </dl>
+        <input type="submit" value="Register">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <div style="color:red"><li>{{ message }}</li></div>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+    </form>
+{% endblock %}
